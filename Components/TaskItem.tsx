@@ -29,7 +29,7 @@ export function TaskItem({ task, onToggle, onTrashClick }: TaskItemProps) {
             )}
             <div className="flex items-center gap-2 text-xs">
             <span className="text-muted-foreground">
-                {format(new Date(task.date), 'h:mm a')}
+                {format(new Date(task.date), 'h:mm')}
             </span>
             </div>
         </div>

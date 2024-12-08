@@ -7,7 +7,7 @@ import { FormEvent, useState } from 'react';
 
 type TaskFormProps = {
     selectedDate: Date;
-    onOpenChange?: () => void;
+    onOpenChange: () => void;
   };
   
 export function TaskForm({ selectedDate, onOpenChange }: TaskFormProps) {
@@ -18,18 +18,18 @@ export function TaskForm({ selectedDate, onOpenChange }: TaskFormProps) {
     const handleAddTask = (e: FormEvent) => {
         e.preventDefault();
         const generateId = Math.floor(Math.random()*1000);
-
         if (taskTitle.trim() && taskDescription.trim()) {
         const newTask = {
             id: generateId.toString(),
             title: taskTitle,
             description: taskDescription,
             completed: false,
-            date: selectedDate,
+            date: new Date,
         };
         addTask(newTask);
         setTaskTitle('');
         setTaskDescription('');
+        onOpenChange();
         }
     };
 
@@ -58,18 +58,6 @@ export function TaskForm({ selectedDate, onOpenChange }: TaskFormProps) {
                                 value={taskDescription} 
                                 placeholder='Description'
                             ></textarea>
-                            <div className='flex gap-2 items-center'>
-                                <div className='border-2 rounded-lg p-2 flex-1'>
-                                    <select className='w-full' name="Priority" id="">
-                                        <option value="">Medium Priorty</option>
-                                        <option value="">High Priority</option>
-                                        <option value="">Low Priority</option>
-                                    </select>
-                                </div>
-                                <div className='flex-1 border-2 rounded-lg text-center p-1.5'>
-                                    <span className='text-lg text-gray-700'></span>
-                                </div>
-                            </div>    
                             <button className='w-full bg-black text-white p-2 rounded-lg'>Add Task</button>
                         </form>
                     </div>

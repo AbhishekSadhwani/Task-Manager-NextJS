@@ -11,6 +11,11 @@ const Home = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isAddingTask, setIsAddingTask] = useState(false);
 
+  const handleFormToggle = () => {
+    setIsAddingTask(false);
+  }
+
+
   return (
     <div className="min-h-screen max-w-3xl mx-auto px-2 lg:px-8">
       <div className="my-10 shadow-lg">
@@ -22,7 +27,7 @@ const Home = () => {
             selectedDate={selectedDate}
             onAddTask={() => setIsAddingTask(true)}
           />
-          {isAddingTask && <TaskForm selectedDate={selectedDate} onOpenChange ={() => setIsAddingTask(!isAddingTask)} />}
+          {isAddingTask && <TaskForm selectedDate={selectedDate} onOpenChange ={handleFormToggle} />}
       </div>
     </div>
   );

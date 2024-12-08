@@ -10,7 +10,6 @@ type WeekProps = {
 
 export function Week({ selectedDate, onSelectDate }: WeekProps) {
     const currMonth = new Date().toLocaleString('default',{month:'long'});
-    console.log(currMonth);
     const startOfCurrentWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
     const weekDays = Array.from({ length: 7 }, (_, i) => addDays(startOfCurrentWeek, i));
 
