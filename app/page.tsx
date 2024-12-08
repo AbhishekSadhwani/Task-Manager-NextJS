@@ -17,7 +17,7 @@ const Home = () => {
 
 
   return (
-    <div className="min-h-screen max-w-3xl mx-auto px-2 lg:px-8">
+    <div className="min-h-screen max-w-3xl mx-auto px-4 lg:px-8">
       <div className="my-10 shadow-lg">
         <Header />
         <Week selectedDate={selectedDate} onSelectDate={setSelectedDate} />
